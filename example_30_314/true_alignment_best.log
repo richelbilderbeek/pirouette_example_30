@@ -1,0 +1,40 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.core.util.CompoundDistribution">
+#    <distribution id="prior" spec="beast.core.util.CompoundDistribution">
+#        <distribution id="BirthDeath.t:true_alignment" spec="beast.evolution.speciation.BirthDeathGernhard08Model">
+#            <parameter id="BDDeathRate.t:true_alignment" lower="0.0" name="relativeDeathRate" spec="beast.core.parameter.RealParameter" upper="1.0">0.5</parameter>
+#            <parameter id="BDBirthRate.t:true_alignment" lower="0.0" name="birthDiffRate" spec="beast.core.parameter.RealParameter" upper="10000.0">1.0</parameter>
+#            <tree id="Tree.t:true_alignment" spec="beast.evolution.tree.Tree">
+#                <taxonset id="TaxonSet.true_alignment" spec="beast.evolution.alignment.TaxonSet">
+#                </taxonset>
+#            </tree>
+#        </distribution>
+#        <prior id="BirthRatePrior.t:true_alignment" name="distribution" x="@BDBirthRate.t:true_alignment">
+#            <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
+#        </prior>
+#        <prior id="DeathRatePrior.t:true_alignment" name="distribution" x="@BDDeathRate.t:true_alignment">
+#            <Uniform id="Uniform.101" name="distr" upper="Infinity"/>
+#        </prior>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.core.util.CompoundDistribution" useThreads="true">
+#        <distribution data="@true_alignment" id="treeLikelihood.true_alignment" spec="beast.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:true_alignment">
+#            <siteModel id="SiteModel.s:true_alignment" spec="beast.evolution.sitemodel.SiteModel">
+#                <parameter estimate="false" id="mutationRate.s:true_alignment" name="mutationRate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="gammaShape.s:true_alignment" name="shape" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="proportionInvariant.s:true_alignment" lower="0.0" name="proportionInvariant" spec="beast.core.parameter.RealParameter" upper="1.0">0.0</parameter>
+#                <substModel id="JC69.s:true_alignment" spec="beast.evolution.substitutionmodel.JukesCantor"/>
+#            </siteModel>
+#            <branchRateModel id="StrictClock.c:true_alignment" spec="beast.evolution.branchratemodel.StrictClockModel">
+#                <parameter estimate="false" id="clockRate.c:true_alignment" name="clock.rate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            </branchRateModel>
+#        </distribution>
+#    </distribution>
+#</input>
+#
+Sample	posterior	likelihood	prior	treeLikelihood	TreeHeight	BirthDeath	BDBirthRate	BDDeathRate
+0	-8347.62569835131	-8335.17317452137	-12.452523829941558	-8335.17317452137	3.5338720092411458	-12.452523829941558	1.0	0.5
+1000	-7875.354578475748	-7870.297428929278	-5.057149546469721	-7870.297428929278	0.9555078523079145	-5.057149546469721	0.8480283464196099	0.2917723036132231
+2000	-7876.933102276077	-7870.820019015347	-6.113083260730438	-7870.820019015347	1.028564870495577	-6.113083260730438	1.2176407617255098	0.370306571833318
+3000	-7878.104748963443	-7872.261689460211	-5.843059503232305	-7872.261689460211	0.9903675710988528	-5.843059503232305	1.5101402488396365	0.14461506596057488

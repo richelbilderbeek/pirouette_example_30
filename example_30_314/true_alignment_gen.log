@@ -1,0 +1,36 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.core.util.CompoundDistribution">
+#    <distribution id="prior" spec="beast.core.util.CompoundDistribution">
+#        <distribution id="YuleModel.t:true_alignment" spec="beast.evolution.speciation.YuleModel">
+#            <parameter id="birthRate.t:true_alignment" name="birthDiffRate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            <tree id="Tree.t:true_alignment" spec="beast.evolution.tree.Tree">
+#                <taxonset id="TaxonSet.true_alignment" spec="beast.evolution.alignment.TaxonSet">
+#                </taxonset>
+#            </tree>
+#        </distribution>
+#        <prior id="YuleBirthRatePrior.t:true_alignment" name="distribution" x="@birthRate.t:true_alignment">
+#            <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
+#        </prior>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.core.util.CompoundDistribution" useThreads="true">
+#        <distribution data="@true_alignment" id="treeLikelihood.true_alignment" spec="beast.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:true_alignment">
+#            <siteModel id="SiteModel.s:true_alignment" spec="beast.evolution.sitemodel.SiteModel">
+#                <parameter estimate="false" id="mutationRate.s:true_alignment" name="mutationRate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="gammaShape.s:true_alignment" name="shape" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="proportionInvariant.s:true_alignment" lower="0.0" name="proportionInvariant" spec="beast.core.parameter.RealParameter" upper="1.0">0.0</parameter>
+#                <substModel id="JC69.s:true_alignment" spec="beast.evolution.substitutionmodel.JukesCantor"/>
+#            </siteModel>
+#            <branchRateModel id="StrictClock.c:true_alignment" spec="beast.evolution.branchratemodel.StrictClockModel">
+#                <parameter estimate="false" id="clockRate.c:true_alignment" name="clock.rate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            </branchRateModel>
+#        </distribution>
+#    </distribution>
+#</input>
+#
+Sample	posterior	likelihood	prior	treeLikelihood	TreeHeight	YuleModel	birthRate
+0	-8345.58356155735	-8335.17317452137	-10.410387035981923	-8335.17317452137	3.5338720092411458	-10.410387035981923	1.0
+1000	-7876.510573422113	-7871.5003722907395	-5.010201131374089	-7871.5003722907395	0.9567119604837637	-5.010201131374089	1.0856403424169467
+2000	-7878.419244135089	-7872.29652067075	-6.12272346433852	-7872.29652067075	1.0035640380281348	-6.12272346433852	1.8681492058049587
+3000	-7877.715162014748	-7872.225725966148	-5.489436048600041	-7872.225725966148	0.955227473803675	-5.489436048600041	1.6111236634392054

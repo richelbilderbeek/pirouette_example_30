@@ -1,5 +1,6 @@
 # Works under Linux and MacOS only
-
+# pirouette example 30:
+# use one exemplary DD tree, as used in the pirouette article
 library(pirouette)
 suppressMessages(library(ggplot2))
 
@@ -13,6 +14,7 @@ set.seed(rng_seed)
 testit::assert(is_beast2_installed())
 
 phylogeny <- create_dd_tree(n_taxa = 6, crown_age = 10)
+ape::write.tree(phylogeny, file = "true_tree.newick")
 
 alignment_params <- create_alignment_params(
   sim_tral_fun = get_sim_tral_with_std_nsm_fun(

@@ -1,0 +1,69 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.core.util.CompoundDistribution">
+#    <distribution id="prior" spec="beast.core.util.CompoundDistribution">
+#        <distribution id="CoalescentExponential.t:twin_alignment" spec="beast.evolution.tree.coalescent.Coalescent">
+#            <populationModel id="ExponentialGrowth.t:twin_alignment" spec="beast.evolution.tree.coalescent.ExponentialGrowth">
+#                <parameter id="ePopSize.t:twin_alignment" name="popSize" spec="beast.core.parameter.RealParameter">0.3</parameter>
+#                <parameter id="growthRate.t:twin_alignment" name="growthRate" spec="beast.core.parameter.RealParameter">3.0E-4</parameter>
+#            </populationModel>
+#            <treeIntervals id="TreeIntervals.t:twin_alignment" spec="beast.evolution.tree.coalescent.TreeIntervals">
+#                <tree id="Tree.t:twin_alignment" spec="beast.evolution.tree.Tree">
+#                    <taxonset id="TaxonSet.twin_alignment" spec="beast.evolution.alignment.TaxonSet">
+#                    </taxonset>
+#                </tree>
+#            </treeIntervals>
+#        </distribution>
+#        <prior id="ePopSizePrior.t:twin_alignment" name="distribution" x="@ePopSize.t:twin_alignment">
+#            <OneOnX id="OneOnX.100" name="distr"/>
+#        </prior>
+#        <prior id="GrowthRatePrior.t:twin_alignment" name="distribution" x="@growthRate.t:twin_alignment">
+#            <LaplaceDistribution id="LaplaceDistribution.101" name="distr">
+#                <parameter estimate="false" id="RealParameter.200" name="mu" spec="beast.core.parameter.RealParameter">0.0</parameter>
+#                <parameter estimate="false" id="RealParameter.201" name="scale" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            </LaplaceDistribution>
+#        </prior>
+#        <prior id="KappaPrior.s:twin_alignment" name="distribution">
+#            <parameter id="kappa.s:twin_alignment" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">2.0</parameter>
+#            <LogNormal id="LogNormalDistributionModel.0" name="distr">
+#                <parameter estimate="false" id="RealParameter.0" name="M" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="RealParameter.1" lower="0.0" name="S" spec="beast.core.parameter.RealParameter" upper="Infinity">1.25</parameter>
+#            </LogNormal>
+#        </prior>
+#        <prior id="ucldStdevPrior.c:twin_alignment" name="distribution">
+#            <parameter id="ucldStdev.c:twin_alignment" lower="0.0" name="x" spec="beast.core.parameter.RealParameter">0.1</parameter>
+#            <Gamma id="Gamma.1" name="distr">
+#                <parameter estimate="false" id="RealParameter.2" name="alpha" spec="beast.core.parameter.RealParameter">0.5396</parameter>
+#                <parameter estimate="false" id="RealParameter.3" name="beta" spec="beast.core.parameter.RealParameter">0.3819</parameter>
+#            </Gamma>
+#        </prior>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.core.util.CompoundDistribution" useThreads="true">
+#        <distribution data="@twin_alignment" id="treeLikelihood.twin_alignment" spec="beast.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:twin_alignment">
+#            <siteModel id="SiteModel.s:twin_alignment" spec="beast.evolution.sitemodel.SiteModel">
+#                <parameter estimate="false" id="mutationRate.s:twin_alignment" name="mutationRate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="gammaShape.s:twin_alignment" name="shape" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#                <parameter estimate="false" id="proportionInvariant.s:twin_alignment" lower="0.0" name="proportionInvariant" spec="beast.core.parameter.RealParameter" upper="1.0">0.0</parameter>
+#                <substModel id="hky.s:twin_alignment" kappa="@kappa.s:twin_alignment" spec="beast.evolution.substitutionmodel.HKY">
+#                    <frequencies id="estimatedFreqs.s:twin_alignment" spec="beast.evolution.substitutionmodel.Frequencies">
+#                        <parameter dimension="4" id="freqParameter.s:twin_alignment" lower="0.0" name="frequencies" spec="beast.core.parameter.RealParameter" upper="1.0">0.25</parameter>
+#                    </frequencies>
+#                </substModel>
+#            </siteModel>
+#            <branchRateModel id="RelaxedClock.c:twin_alignment" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" tree="@Tree.t:twin_alignment">
+#                <LogNormal S="@ucldStdev.c:twin_alignment" id="LogNormalDistributionModel.c:twin_alignment" meanInRealSpace="true" name="distr">
+#                    <parameter estimate="false" id="RealParameter.4" lower="0.0" name="M" spec="beast.core.parameter.RealParameter" upper="1.0">1.0</parameter>
+#                </LogNormal>
+#                <rateCategories dimension="10" id="rateCategories.c:twin_alignment" spec="beast.core.parameter.IntegerParameter">1</rateCategories>
+#                <parameter estimate="false" id="ucldMean.c:twin_alignment" name="clock.rate" spec="beast.core.parameter.RealParameter">1.0</parameter>
+#            </branchRateModel>
+#        </distribution>
+#    </distribution>
+#</input>
+#
+Sample	posterior	likelihood	prior	treeLikelihood	TreeHeight	kappa	freqParameter.1	freqParameter.2	freqParameter.3	freqParameter.4	ucldStdev	rate.mean	rate.variance	rate.coefficientOfVariation	CoalescentExponential	ePopSize	growthRate
+0	-8448.007876192307	-8422.04768297664	-25.96019321566746	-8422.04768297664	3.6143155564587808	2.0	0.25	0.25	0.25	0.25	0.1	0.9756932119134161	0.004817612021413343	0.06821694221231839	-25.424722950579962	0.3	3.0E-4
+1000	-6298.005071641345	-6290.93972257083	-7.065349070515764	-6290.93972257083	1.2482691186223003	2.0	0.251410271980015	0.2510965478418863	0.24749318017809877	0.25	0.2228756557034029	0.8451513030523657	0.0186337932553614	0.1577782949460235	-4.71000716023147	0.9107837185565278	-0.01891567399695382
+2000	-6302.5384119436585	-6292.003023479283	-10.535388464375362	-6292.003023479283	1.2767245445735704	2.0	0.251410271980015	0.2510965478418863	0.24749318017809877	0.25	0.2965122961636013	0.7837493849342602	0.0475276351643222	0.24265859687951197	-4.980286070782887	3.3013736998325562	1.6066385935406993
+3000	-6297.657908671945	-6290.000315231274	-7.657593440671295	-6290.000315231274	1.0549638302853521	2.0	0.251410271980015	0.2510965478418863	0.24749318017809877	0.25	0.10309623058810047	0.9948247471844015	0.00741527849390316	0.08820934601038183	-5.269345589711872	1.6040739450445982	-0.15441192159337325
