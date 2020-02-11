@@ -1,9 +1,12 @@
 # Works under Linux and MacOS only
 # pirouette example 30:
-# use one exemplary DD tree, as used in the pirouette article
-library(pirouette)
+# create one exemplary DD tree, as used in the pirouette article
+suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 
+if (1 == 2) {
+  setwd("~/GitHubs/pirouette_example_30")
+}
 root_folder <- getwd()
 example_no <- 30
 rng_seed <- 314
@@ -13,18 +16,22 @@ setwd(example_folder)
 set.seed(rng_seed)
 testit::assert(is_beast2_installed())
 
-phylogeny <- create_dd_tree(n_taxa = 6, crown_age = 10)
+crown_age <- 10
+phylogeny <- create_dd_tree(n_taxa = 6, crown_age = crown_age)
+ape::plot.phylo(phylogeny)
 ape::write.tree(phylogeny, file = "true_tree.newick")
 
 alignment_params <- create_alignment_params(
   sim_tral_fun = get_sim_tral_with_std_nsm_fun(
-    mutation_rate = 0.1
+    mutation_rate = 1.0 / crown_age,
+    site_model = create_jc69_site_model() # Explicit, same as default
   ),
   root_sequence = create_blocked_dna(length = 1000),
   rng_seed = rng_seed,
   fasta_filename = "true_alignment.fas"
 )
 
+# Hand-pick a generating model
 # JC69, strict, Yule
 generative_experiment <- create_gen_experiment()
 generative_experiment$beast2_options$input_filename <- "true_alignment_gen.xml"
@@ -35,8 +42,20 @@ generative_experiment$inference_model$mcmc$screenlog$filename <- "true_alignment
 generative_experiment$errors_filename <- "true_errors_gen.csv"
 check_experiment(generative_experiment)
 
-# All non-Yule tree priors
+# Create the set of candidate experiments
+# Use 2 different site models, 1 clock model and 2 tree priors
+site_models <- list()
+site_models[[1]] <- create_jc69_site_model()
+site_models[[2]] <- create_hky_site_model()
+clock_models <- list()
+clock_models[[1]] <- create_strict_clock_model()
+tree_priors <- list()
+tree_priors[[1]] <- create_yule_tree_prior()
+tree_priors[[2]] <- create_bd_tree_prior()
 candidate_experiments <- create_all_experiments(
+  site_models = site_models,
+  clock_models = clock_models,
+  tree_priors = tree_priors,
   exclude_model = generative_experiment$inference_model
 )
 for (i in seq_along(candidate_experiments)) {
@@ -47,8 +66,8 @@ for (i in seq_along(candidate_experiments)) {
   candidate_experiments[[i]]$inference_model$mcmc$screenlog$filename <- "true_alignment_best.csv"
   candidate_experiments[[i]]$errors_filename <- "true_errors_best.csv"
 }
-check_experiments(candidate_experiments)
 
+# Combine all experiments
 experiments <- c(list(generative_experiment), candidate_experiments)
 
 # Set the RNG seed
@@ -67,14 +86,12 @@ if (is_on_travis()) {
   }
 }
 
-check_experiments(experiments)
-
 twinning_params <- create_twinning_params(
   rng_seed_twin_tree = rng_seed,
   sim_twin_tree_fun = get_sim_bd_twin_tree_fun(),
   rng_seed_twin_alignment = rng_seed,
   sim_twal_fun = get_sim_twal_same_n_muts_fun(
-    mutation_rate = 0.1,
+    mutation_rate = 1.0 / crown_age,
     max_n_tries = 1000
   ),
   twin_tree_filename = "twin_tree.newick",
