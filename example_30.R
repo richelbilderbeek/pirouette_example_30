@@ -42,20 +42,8 @@ generative_experiment$inference_model$mcmc$screenlog$filename <- "true_alignment
 generative_experiment$errors_filename <- "true_errors_gen.csv"
 check_experiment(generative_experiment)
 
-# Create the set of candidate experiments
-# Use 2 different site models, 1 clock model and 2 tree priors
-site_models <- list()
-site_models[[1]] <- create_jc69_site_model()
-site_models[[2]] <- create_hky_site_model()
-clock_models <- list()
-clock_models[[1]] <- create_strict_clock_model()
-tree_priors <- list()
-tree_priors[[1]] <- create_yule_tree_prior()
-tree_priors[[2]] <- create_bd_tree_prior()
-candidate_experiments <- create_all_experiments(
-  site_models = site_models,
-  clock_models = clock_models,
-  tree_priors = tree_priors,
+# Create the set of candidate birth-death experiments
+candidate_experiments <- create_all_bd_experiments(
   exclude_model = generative_experiment$inference_model
 )
 for (i in seq_along(candidate_experiments)) {
