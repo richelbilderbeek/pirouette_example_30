@@ -1,15 +1,34 @@
 Registered S3 method overwritten by 'pryr':
   method      from
   print.bytes Rcpp
-Error in create_all_bd_experiments(exclude_model = generative_experiment$inference_model) : 
-  could not find function "create_all_bd_experiments"
-Execution halted
+ [1] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_tree.png"                
+ [2] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_alignment.png"           
+ [3] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_posterior_gen.png"       
+ [4] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_posterior_best.png"      
+ [5] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_error_histogram_gen.png" 
+ [6] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_error_histogram_best.png"
+ [7] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_error_violin_gen.png"    
+ [8] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_error_violin_best.png"   
+ [9] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_tree.png"                
+[10] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_alignment.png"           
+[11] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_posterior_gen.png"       
+[12] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_posterior_best.png"      
+[13] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_error_histogram_gen.png" 
+[14] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_error_histogram_best.png"
+[15] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_error_violin_gen.png"    
+[16] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_error_violin_best.png"   
+[1] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/evidence_true.latex"  
+[2] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/evidence_twin.latex"  
+[3] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/esses_gen.latex"      
+[4] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/esses_twin_gen.latex" 
+[5] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/esses_best.latex"     
+[6] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/esses_twin_best.latex"
 
 
 ###############################################################################
 Peregrine Cluster
-Job 9534504 for user 'p230198'
-Finished at: Thu Feb 13 09:50:27 CET 2020
+Job 9591663 for user 'p230198'
+Finished at: Mon Feb 17 10:28:16 CET 2020
 
 Job details:
 ============
@@ -19,19 +38,19 @@ User                : p230198
 Partition           : gelifes
 Nodes               : pg-node211
 Cores               : 1
-State               : FAILED
-Submit              : 2020-02-13T09:49:48
-Start               : 2020-02-13T09:49:59
-End                 : 2020-02-13T09:50:27
+State               : COMPLETED
+Submit              : 2020-02-17T09:33:00
+Start               : 2020-02-17T09:34:57
+End                 : 2020-02-17T10:28:13
 Reserved walltime   : 10:00:00
-Used walltime       : 00:00:28
-Used CPU time       : 00:00:11 (efficiency: 40.47%)
-% User (Computation): 88.45%
-% System (I/O)      : 11.55%
+Used walltime       : 00:53:16
+Used CPU time       : 00:46:31 (efficiency: 87.35%)
+% User (Computation): 96.89%
+% System (I/O)      :  3.11%
 Mem reserved        : 10G/node
-Max Mem used        : 0.00  (pg-node211)
+Max Mem used        : 951.35M (pg-node211)
 Max Disk Write      : 0.00  (pg-node211)
-Max Disk Read       : 0.00  (pg-node211)
+Max Disk Read       : 112.64K (pg-node211)
 
 
 Acknowledgements:
