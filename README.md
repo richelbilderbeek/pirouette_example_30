@@ -8,6 +8,10 @@ Branch   |[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)
 A [pirouette example](https://github.com/richelbilderbeek/pirouette_examples):
 use one exemplary DD tree, as used in the pirouette article.
 
+## Related settings
+
+ * [Multiple DD trees](https://github.com/richelbilderbeek/pirouette_example_28)
+
 ## Results
 
 ![](example_30_314/errors.png)
