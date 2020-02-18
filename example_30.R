@@ -18,8 +18,12 @@ testit::assert(is_beast2_installed())
 
 crown_age <- 10
 phylogeny <- create_dd_tree(n_taxa = 6, crown_age = crown_age)
-ape::plot.phylo(phylogeny)
+
+# Save tree to files
 ape::write.tree(phylogeny, file = "true_tree.newick")
+png(filename = "true_tree.png", width = 7, height = 7)
+ape::plot.phylo(phylogeny)
+dev.off()
 
 alignment_params <- create_alignment_params(
   sim_tral_fun = get_sim_tral_with_std_nsm_fun(
