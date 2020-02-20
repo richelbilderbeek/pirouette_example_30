@@ -1,6 +1,9 @@
 # Works under Linux and MacOS only
 # pirouette example 30:
 # create one exemplary DD tree, as used in the pirouette article
+
+testthat::expect_true(mcbette::can_run_mcbette())
+
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 
@@ -10,7 +13,8 @@ rng_seed <- 314
 example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
 dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 set.seed(rng_seed)
-testit::assert(is_beast2_installed())
+
+
 
 crown_age <- 10
 phylogeny <- create_dd_tree(n_taxa = 6, crown_age = crown_age)
@@ -94,12 +98,22 @@ pir_params <- create_pir_params(
   twinning_params = twinning_params
 )
 
+filenames_before <- get_pir_params_filenames(pir_params)
+
 pir_params <- pir_rename(
   pir_params = pir_params,
   rename_fun = get_replace_dir_fun(example_folder)
 )
 
-filenames <- get_pir_params_filenames(pir_params)
+# GOTCHA!
+# The log file for the MC has not received a rename
+get_replace_dir_fun(
+  "~/GitHubs/pirouette_example_30/example_30_314"
+)("alignment_34595a4a1e58_twin.log")
+
+
+filenames_after <- get_pir_params_filenames(pir_params)
+filenames <- filenames_after
 
 skip("Gotcha")
 testthat::expect_true(
