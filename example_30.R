@@ -7,7 +7,7 @@ suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 
 #root_folder <- "~/GitHubs/pirouette_example_30"
-root_folder <- "~/temp2/temp/temp/temp"
+root_folder <- "~/temp42/temp/temp/temp"
 example_no <- 30
 rng_seed <- 314
 example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
