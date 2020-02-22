@@ -6,7 +6,10 @@ testthat::expect_true(mcbette::can_run_mcbette())
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 
-root_folder <- "~/temp314/GitHubs/pirouette_example_30"
+root_folder <- "~/GitHubs/pirouette_example_30"
+if (is_on_travis()) {
+  root_folder <- getwd()
+}
 example_no <- 30
 rng_seed <- 314
 example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
