@@ -6,8 +6,7 @@ testthat::expect_true(mcbette::can_run_mcbette())
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 
-#root_folder <- "~/GitHubs/pirouette_example_30"
-root_folder <- "~/temp42/temp/temp/temp"
+root_folder <- "~/GitHubs/pirouette_example_30"
 example_no <- 30
 rng_seed <- 314
 example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
@@ -78,28 +77,10 @@ pir_params <- pir_rename(
   rename_fun = get_replace_dir_fun(example_folder)
 )
 
-rm_pir_param_files(pir_params)
-
-get_pir_params_filenames(pir_params)
-
-for (i in seq_along(pir_params$experiments)) {
-  babette::prepare_file_creation(
-    pir_params$experiments[[i]]$inference_model,
-    pir_params$experiments[[i]]$beast2_options
-  )
-  pir_params$experiments[[i]]$inference_model$mcmc <- pir_params$experiments[[i]]$est_evidence_mcmc
-  babette::prepare_file_creation(
-    pir_params$experiments[[i]]$inference_model,
-    pir_params$experiments[[i]]$beast2_options
-  )
-}
-
 errors <- pir_run(
   phylogeny,
   pir_params = pir_params
 )
-
-"beast2_3a061dfeb487_evidence.xml.state" %in% get_pir_params_filenames(pir_params)
 
 utils::write.csv(
   x = errors,
