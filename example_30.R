@@ -10,16 +10,11 @@ root_folder <- "~/temp314/GitHubs/pirouette_example_30"
 example_no <- 30
 rng_seed <- 314
 example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
-#dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
-set.seed(rng_seed)
 
+set.seed(rng_seed)
 
 crown_age <- 10
 phylogeny <- create_dd_tree(n_taxa = 6, crown_age = crown_age)
-
-# Save tree to files
-ape::write.tree(phylogeny, file = file.path(example_folder, "true_tree.newick"))
-
 
 alignment_params <- create_alignment_params(
   sim_tral_fun = get_sim_tral_with_std_nsm_fun(
@@ -81,6 +76,11 @@ errors <- pir_run(
   phylogeny,
   pir_params = pir_params
 )
+
+# Need to create this folder for the newick file
+dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
+# Save tree to files
+ape::write.tree(phylogeny, file = file.path(example_folder, "true_tree.newick"))
 
 utils::write.csv(
   x = errors,
