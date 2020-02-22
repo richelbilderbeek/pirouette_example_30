@@ -78,7 +78,7 @@ errors <- pir_run(
 )
 
 # Need to create this folder for the newick file
-dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
+#dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 # Save tree to files
 ape::write.tree(phylogeny, file = file.path(example_folder, "true_tree.newick"))
 
