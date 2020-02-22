@@ -34,6 +34,7 @@ script:
   # Go!
   - travis_wait 60 ./scripts/rerun.sh
   # Check if all files are created
+  - find .
   # Basic files: true tree and alignment
   - if [ ! -f example_30_314/true_alignment.fas ]; then echo "file 'true_alignment.fas' not found" ; exit 1 ; fi
   - if [ ! -f example_30_314/true_alignment.png ]; then echo "file 'true_alignment.png' not found" ; exit 1 ; fi
