@@ -6,11 +6,11 @@ testthat::expect_true(mcbette::can_run_mcbette())
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 
-root_folder <- "~/GitHubs/pirouette_example_30"
+root_folder <- "~/temp314/GitHubs/pirouette_example_30"
 example_no <- 30
 rng_seed <- 314
 example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
-dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
+#dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
 set.seed(rng_seed)
 
 
