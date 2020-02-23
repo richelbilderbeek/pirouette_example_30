@@ -3,6 +3,7 @@
 # create one exemplary DD tree, as used in the pirouette article
 testthat::expect_true(mcbette::can_run_mcbette())
 
+
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 
@@ -78,26 +79,6 @@ pir_params <- pir_rename(
   pir_params = pir_params,
   rename_fun = get_remove_hex_fun()
 )
-
-get_pir_params_filenames(pir_params)
-
-# beast2_options verbose
-for (i in seq_along(experiments)) {
-  pir_params$experiments[[i]]$beast2_options$verbose <- TRUE
-}
-
-for (i in seq_along(experiments)) {
-  babette::prepare_file_creation(
-    inference_model = pir_params$experiments[[i]]$inference_model,
-    beast2_options = pir_params$experiments[[i]]$beast2_options
-  )
-  inference_model <- pir_params$experiments[[i]]$inference_model
-  inference_model$mcmc <- pir_params$experiments[[i]]$est_evidence_mcmc
-  babette::prepare_file_creation(
-    inference_model = inference_model,
-    beast2_options = pir_params$experiments[[i]]$beast2_options
-  )
-}
 
 errors <- pir_run(
   phylogeny,
