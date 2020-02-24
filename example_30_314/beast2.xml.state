@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:alignment'>(0:0.9803206152688123,((1:0.8062240556494191,3:0.8062240556494191)6:0.14108819387633775,(2:0.9318770956895117,(4:0.23924467204771319,5:0.23924467204771319)7:0.6926324236417986)9:0.015435153836245163)8:0.033008365743055434)10:0.0</statenode>
+<statenode id='BDBirthRate.t:alignment'>BDBirthRate.t:alignment[1 1] (0.0,10000.0): 0.7005830226965054 </statenode>
+<statenode id='BDDeathRate.t:alignment'>BDDeathRate.t:alignment[1 1] (0.0,1.0): 0.13730228712851797 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"BirthRateScaler.t:alignment","p":0.18896035981870193,"accept":103762,"reject":281142,"acceptFC":102862,"rejectFC":280972,"rejectIv":0,"rejectOp":0},
+{"id":"DeathRateScaler.t:alignment","p":0.10734833283509902,"accept":81817,"reject":303378,"acceptFC":80832,"rejectFC":303240,"rejectIv":171729,"rejectOp":171729},
+{"id":"BirthDeathTreeScaler.t:alignment","p":0.7836626964236856,"accept":75419,"reject":309925,"acceptFC":75353,"rejectFC":308869,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathTreeRootScaler.t:alignment","p":0.6365190468520101,"accept":35968,"reject":348841,"acceptFC":35901,"rejectFC":347819,"rejectIv":128955,"rejectOp":128955},
+{"id":"BirthDeathUniformOperator.t:alignment","p":"NaN","accept":1311733,"reject":2534356,"acceptFC":1307959,"rejectFC":2527035,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathSubtreeSlide.t:alignment","p":0.6267935762682368,"accept":149423,"reject":1772274,"acceptFC":149123,"rejectFC":1766978,"rejectIv":510923,"rejectOp":510923},
+{"id":"BirthDeathNarrow.t:alignment","p":"NaN","accept":952436,"reject":970482,"acceptFC":949687,"rejectFC":967632,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathWide.t:alignment","p":"NaN","accept":46664,"reject":337928,"acceptFC":46525,"rejectFC":336963,"rejectIv":213942,"rejectOp":213942},
+{"id":"BirthDeathWilsonBalding.t:alignment","p":"NaN","accept":19858,"reject":364595,"acceptFC":19812,"rejectFC":363604,"rejectIv":188845,"rejectOp":188845}
+]}
+-->
