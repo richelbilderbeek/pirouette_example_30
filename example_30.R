@@ -6,6 +6,7 @@ testthat::expect_true(mcbette::can_run_mcbette())
 
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
+suppressMessages(library(pryr))
 
 root_folder <- "/home/richel/GitHubs/pirouette_example_30"
 if (is_on_travis()) {
@@ -71,6 +72,10 @@ pir_params <- pir_rename(
 pir_params <- pir_rename(
   pir_params = pir_params,
   rename_fun = get_remove_hex_fun()
+)
+pir_params <- pir_rename(
+  pir_params = pir_params,
+  rename_fun = get_remove_hex_twin_fun()
 )
 
 errors <- pir_run(
