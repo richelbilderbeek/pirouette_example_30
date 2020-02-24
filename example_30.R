@@ -7,7 +7,7 @@ testthat::expect_true(mcbette::can_run_mcbette())
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 
-root_folder <- "~/GitHubs/pirouette_example_30"
+root_folder <- "/home/richel/GitHubs/pirouette_example_30"
 if (is_on_travis()) {
   root_folder <- getwd()
 }
@@ -15,9 +15,8 @@ example_no <- 30
 rng_seed <- 314
 example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
 
-set.seed(rng_seed)
-
 crown_age <- 10
+set.seed(rng_seed)
 phylogeny <- create_dd_tree(n_taxa = 6, crown_age = crown_age)
 
 alignment_params <- create_alignment_params(
@@ -46,13 +45,7 @@ for (i in seq_along(experiments)) {
 
 # Shorter on Travis
 if (is_on_travis()) {
-  for (i in seq_along(experiments)) {
-    experiments[[i]]$inference_model$mcmc$chain_length <- 3000
-    experiments[[i]]$inference_model$mcmc$store_every <- 1000
-    experiments[[i]]$est_evidence_mcmc$chain_length <- 3000
-    experiments[[i]]$est_evidence_mcmc$store_every <- 1000
-    experiments[[i]]$est_evidence_mcmc$epsilon <- 100.0
-  }
+  experiments <- shorten_experiments(experiments)
 }
 
 twinning_params <- create_twinning_params(
