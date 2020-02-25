@@ -7,6 +7,7 @@ suppressMessages(library(pryr))
 testthat::expect_true(mcbette::can_run_mcbette())
 
 root_folder <- "/home/richel/GitHubs/pirouette_example_30"
+root_folder <- "/home/richel/temp/temp/pirouette_example_30"
 if (is_on_travis()) {
   root_folder <- getwd()
 }
