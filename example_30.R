@@ -1,12 +1,10 @@
 # Works under Linux and MacOS only
 # pirouette example 30:
 # create one exemplary DD tree, as used in the pirouette article
-testthat::expect_true(mcbette::can_run_mcbette())
-
-
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 suppressMessages(library(pryr))
+testthat::expect_true(mcbette::can_run_mcbette())
 
 root_folder <- "/home/richel/GitHubs/pirouette_example_30"
 if (is_on_travis()) {
@@ -22,11 +20,9 @@ phylogeny <- create_dd_tree(n_taxa = 6, crown_age = crown_age)
 
 alignment_params <- create_alignment_params(
   sim_tral_fun = get_sim_tral_with_std_nsm_fun(
-    mutation_rate = 1.0 / crown_age,
-    site_model = create_jc69_site_model() # Explicit, same as default
+    mutation_rate = 1.0 / crown_age
   ),
-  root_sequence = create_blocked_dna(length = 1000),
-  rng_seed = rng_seed
+  root_sequence = create_blocked_dna(length = 1000)
 )
 
 # Hand-pick a generating model
@@ -39,20 +35,13 @@ candidate_experiments <- create_all_bd_experiments(
 # Combine all experiments
 experiments <- c(list(generative_experiment), candidate_experiments)
 
-# Set the RNG seed
-for (i in seq_along(experiments)) {
-  experiments[[i]]$beast2_options$rng_seed <- rng_seed
-}
-
 # Shorter on Travis
 if (is_on_travis()) {
   experiments <- shorten_experiments(experiments)
 }
 
 twinning_params <- create_twinning_params(
-  rng_seed_twin_tree = rng_seed,
   sim_twin_tree_fun = get_sim_bd_twin_tree_fun(),
-  rng_seed_twin_alignment = rng_seed,
   sim_twal_fun = get_sim_twal_same_n_muts_fun(
     mutation_rate = 1.0 / crown_age,
     max_n_tries = 1000
@@ -65,6 +54,7 @@ pir_params <- create_pir_params(
   twinning_params = twinning_params
 )
 
+# Rename filenames
 pir_params <- pir_rename(
   pir_params = pir_params,
   rename_fun = get_replace_dir_fun(example_folder)
@@ -77,6 +67,12 @@ pir_params <- pir_rename(
   pir_params = pir_params,
   rename_fun = get_remove_hex_twin_fun()
 )
+
+# Set the RNG seeds
+pir_params <- renum_rng_seeds(
+  pir_paramses = list(pir_params),
+  rng_seeds = c(314)
+)[[1]]
 
 errors <- pir_run(
   phylogeny,

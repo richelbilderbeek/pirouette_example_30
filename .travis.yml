@@ -74,4 +74,10 @@ script:
   - if [ ! -f example_30_314/twin_posterior_best.png ]; then echo "file 'twin_posterior_best.png' not found" ; exit 1 ; fi
 
 after_success:
+  - Rscript -e "mcbette::mcbette_report()"
   - cd example_30_314 ; find .
+
+after_failure:
+  - Rscript -e "mcbette::mcbette_report()"
+  - cd example_30_314 ; find .
+
