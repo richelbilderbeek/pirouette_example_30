@@ -37,7 +37,7 @@ candidate_experiments <- create_all_bd_experiments(
 experiments <- c(list(generative_experiment), candidate_experiments)
 
 # Shorter on Travis
-if (is_on_travis() || TRUE) {
+if (is_on_travis()) {
   experiments <- shorten_experiments(experiments)
 }
 
