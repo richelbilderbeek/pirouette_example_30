@@ -56,17 +56,9 @@ pir_params <- create_pir_params(
 )
 
 # Rename filenames
-pir_params <- pir_rename(
+pir_params <- pir_rename_to_std(
   pir_params = pir_params,
-  rename_fun = get_replace_dir_fun(example_folder)
-)
-pir_params <- pir_rename(
-  pir_params = pir_params,
-  rename_fun = get_remove_hex_fun()
-)
-pir_params <- pir_rename(
-  pir_params = pir_params,
-  rename_fun = get_remove_hex_twin_fun()
+  folder_name = example_folder
 )
 
 # Set the RNG seeds
