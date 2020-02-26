@@ -37,7 +37,7 @@ candidate_experiments <- create_all_bd_experiments(
 experiments <- c(list(generative_experiment), candidate_experiments)
 
 # Shorter on Travis
-if (is_on_travis()) {
+if (is_on_travis() || TRUE) {
   experiments <- shorten_experiments(experiments)
 }
 
@@ -46,13 +46,15 @@ twinning_params <- create_twinning_params(
   sim_twal_fun = get_sim_twal_same_n_muts_fun(
     mutation_rate = 1.0 / crown_age,
     max_n_tries = 1000
-  )
+  ),
+  twin_evidence_filename = get_temp_evidence_filename()
 )
 
 pir_params <- create_pir_params(
   alignment_params = alignment_params,
   experiments = experiments,
-  twinning_params = twinning_params
+  twinning_params = twinning_params,
+  evidence_filename = get_temp_evidence_filename()
 )
 
 # Rename filenames
