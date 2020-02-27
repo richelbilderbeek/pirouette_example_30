@@ -35,7 +35,7 @@ pir_params <- create_std_pir_params(folder_name = folder_name)
 ################################################################################
 # Shorter run on Travis
 ################################################################################
-if (is_on_travis()) {
+if (is_testing) {
   pir_params$experiments <- shorten_experiments(pir_params$experiments)
 }
 
@@ -54,6 +54,7 @@ errors <- pir_run(
   phylogeny,
   pir_params = pir_params
 )
+check_pir_out(errors)
 
 ################################################################################
 # Save
