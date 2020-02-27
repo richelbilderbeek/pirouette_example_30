@@ -4,16 +4,20 @@
 suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 suppressMessages(library(pryr))
-testthat::expect_true(mcbette::can_run_mcbette())
+library(testthat)
+expect_true(mcbette::can_run_mcbette())
 
-root_folder <- getwd()
+################################################################################
+# Constants
+################################################################################
 example_no <- 30
 folder_name <- file.path(paste0("example_", example_no))
 crown_age <- 10
 n_taxa <- 6
 rng_seed <- 314
+is_testing <- is_on_travis()
 
-if (is_on_travis()) {
+if (is_testing) {
   folder_name <- rappdirs::user_cache_dir()
 }
 
