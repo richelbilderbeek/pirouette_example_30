@@ -2,7 +2,6 @@
 # pirouette example 30:
 # create one exemplary DD tree, as used in the pirouette article
 suppressMessages(library(pirouette))
-suppressMessages(library(ggplot2))
 suppressMessages(library(pryr))
 library(testthat)
 
@@ -50,7 +49,7 @@ pir_out <- pir_run(
 )
 
 ################################################################################
-# Save
+# Save results
 ################################################################################
 pir_save(
   phylogeny = phylogeny,
