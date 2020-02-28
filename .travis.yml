@@ -35,9 +35,9 @@ script:
 
 after_success:
   - Rscript -e "mcbette::mcbette_report()"
-  - cd example_30_314 ; find .
+  - find .
 
 after_failure:
   - Rscript -e "mcbette::mcbette_report()"
-  - cd example_30_314 ; find .
+  - find .
 
