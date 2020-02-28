@@ -5,7 +5,6 @@ suppressMessages(library(pirouette))
 suppressMessages(library(ggplot2))
 suppressMessages(library(pryr))
 library(testthat)
-expect_true(mcbette::can_run_mcbette())
 
 ################################################################################
 # Constants
@@ -31,10 +30,10 @@ pir_params <- create_std_pir_params(folder_name = folder_name)
 ################################################################################
 # Shorter run on Travis
 ################################################################################
+# Shorter on Travis
 if (is_testing) {
-  pir_params$experiments <- shorten_experiments(pir_params$experiments)
+  pir_params <- shorten_pir_params(pir_params)
 }
-
 ################################################################################
 # Save tree to files
 ################################################################################
