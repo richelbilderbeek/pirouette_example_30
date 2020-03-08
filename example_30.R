@@ -10,7 +10,7 @@ folder_name <- file.path(paste0("example_", example_no))
 crown_age <- 10
 n_taxa <- 6
 rng_seed <- 314
-is_testing <- is_on_travis()
+is_testing <- is_on_ci()
 
 # Create phylogenies
 set.seed(rng_seed)
