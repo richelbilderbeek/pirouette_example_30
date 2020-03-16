@@ -27,8 +27,8 @@ sbatch scripts/rerun.sh
 
 The exemplary true tree:
 
-![](example_30_314/true_tree.png)
+![](example_30/true_tree.png)
 
 The resulting error distributions:
 
-![](example_30_314/errors.png)
+![](example_30/errors.png)
