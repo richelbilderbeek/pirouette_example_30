@@ -1,34 +1,21 @@
+Loading required package: beautier
+Loading required package: babette
+Loading required package: beastier
+Loading required package: mauricer
+Loading required package: tracerer
 Registered S3 method overwritten by 'pryr':
   method      from
   print.bytes Rcpp
- [1] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_tree.png"                
- [2] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_alignment.png"           
- [3] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_posterior_gen.png"       
- [4] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_posterior_best.png"      
- [5] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_error_histogram_gen.png" 
- [6] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_error_histogram_best.png"
- [7] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_error_violin_gen.png"    
- [8] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/true_error_violin_best.png"   
- [9] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_tree.png"                
-[10] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_alignment.png"           
-[11] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_posterior_gen.png"       
-[12] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_posterior_best.png"      
-[13] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_error_histogram_gen.png" 
-[14] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_error_histogram_best.png"
-[15] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_error_violin_gen.png"    
-[16] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/twin_error_violin_best.png"   
-[1] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/evidence_true.latex"  
-[2] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/evidence_twin.latex"  
-[3] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/esses_gen.latex"      
-[4] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/esses_twin_gen.latex" 
-[5] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/esses_best.latex"     
-[6] "/home/p230198/GitHubs/pirouette_example_30/example_30_314/esses_twin_best.latex"
+Saving 7 x 7 in image
+[1] "example_30/evidence_true.latex"   "example_30/evidence_twin.latex"  
+[3] "example_30/esses_gen.latex"       "example_30/esses_twin_gen.latex" 
+[5] "example_30/esses_best.latex"      "example_30/esses_twin_best.latex"
 
 
 ###############################################################################
 Peregrine Cluster
-Job 9591663 for user 'p230198'
-Finished at: Mon Feb 17 10:28:16 CET 2020
+Job 10128540 for user 'p230198'
+Finished at: Mon Mar 16 12:37:05 CET 2020
 
 Job details:
 ============
@@ -39,16 +26,16 @@ Partition           : gelifes
 Nodes               : pg-node211
 Cores               : 1
 State               : COMPLETED
-Submit              : 2020-02-17T09:33:00
-Start               : 2020-02-17T09:34:57
-End                 : 2020-02-17T10:28:13
+Submit              : 2020-03-16T11:35:59
+Start               : 2020-03-16T11:44:32
+End                 : 2020-03-16T12:37:05
 Reserved walltime   : 10:00:00
-Used walltime       : 00:53:16
-Used CPU time       : 00:46:31 (efficiency: 87.35%)
-% User (Computation): 96.89%
-% System (I/O)      :  3.11%
+Used walltime       : 00:52:33
+Used CPU time       : 00:44:34 (efficiency: 84.83%)
+% User (Computation): 97.18%
+% System (I/O)      :  2.82%
 Mem reserved        : 10G/node
-Max Mem used        : 951.35M (pg-node211)
+Max Mem used        : 981.31M (pg-node211)
 Max Disk Write      : 0.00  (pg-node211)
 Max Disk Read       : 112.64K (pg-node211)
 
