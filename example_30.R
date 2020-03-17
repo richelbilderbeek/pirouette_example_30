@@ -14,7 +14,7 @@ is_testing <- is_on_ci()
 
 # Create phylogenies
 set.seed(rng_seed)
-phylogeny <- create_dd_tree(n_taxa = n_taxa, crown_age = crown_age)
+phylogeny <- create_exemplary_dd_tree(n_taxa = n_taxa, crown_age = crown_age)
 
 # Setup pirouette
 pir_params <- create_std_pir_params(folder_name = folder_name)
