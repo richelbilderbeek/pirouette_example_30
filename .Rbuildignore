@@ -7,4 +7,8 @@
 ^\.travis\.yml$
 ^install_beast2$
 ^CONTRIBUTING\.md$
+^CODE_OF_CONDUCT\.md$
+^NEWS\.md$
 ^appveyor\.yml$
+^example_30\.log$
+

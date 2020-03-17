@@ -13,9 +13,9 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --ntasks=1
 #SBATCH --mem=10G
-#SBATCH --job-name=run_example_30
-#SBATCH --output=run_example_30.log
+#SBATCH --job-name=pirex30
+#SBATCH --output=example_30.log
 #
-rm -rf example_30_314
+rm -rf example_30
 Rscript example_30.R
 
