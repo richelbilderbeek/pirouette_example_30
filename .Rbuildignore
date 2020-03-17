@@ -11,4 +11,7 @@
 ^NEWS\.md$
 ^appveyor\.yml$
 ^example_30\.log$
+^LICENSE$
+^example_30$
+^example_30.R$
 
