@@ -3,6 +3,7 @@
 # create one exemplary DD tree, as used in the pirouette article
 library(pirouette)
 library(beautier)
+library(ggplot2)
 
 # Constants
 example_no <- 30
@@ -29,6 +30,8 @@ pir_out <- pir_run(
 )
 
 # Save summary locally
+pir_outs <- list()
+pir_outs[[1]] <- pir_out
 pir_plots(pir_outs) +
   ggtitle(paste0("pirouette example ", example_no)) +
   ggsave("errors.png", width = 7, height = 7)
