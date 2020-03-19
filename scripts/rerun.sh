@@ -6,9 +6,8 @@
 #
 #   ./scripts/rerun.sh
 #
-#
 #SBATCH --partition=gelifes
-#SBATCH --time=10:00:00
+#SBATCH --time=2:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --ntasks=1
@@ -17,6 +16,7 @@
 #SBATCH --output=example_30.log
 #
 rm -rf example_30
-Rscript example_30.R
-zip -r pirouette_example_30.zip example_30 scripts example_30.R
+rm errors.png
+time Rscript example_30.R
+zip -r pirouette_example_30.zip example_30 example_30.R scripts errors.png
 
