@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## `pirouette_example_30` 1.2 (unreleased)
+## `pirouette_example_30` 1.2 (2020-03-19)
 
 ### NEW FEATURES
 
