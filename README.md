@@ -26,10 +26,14 @@ sbatch scripts/rerun.sh
 
 ## Results
 
+ * Download the intermediate data at 
+   [https://www.richelbilderbeek.nl/pirouette_example_30.zip](https://www.richelbilderbeek.nl/pirouette_example_30.zip)
+
 The exemplary true tree:
 
-![](example_30/true_tree.png)
+![](true_tree.png)
 
 The resulting error distributions:
 
-![](example_30/errors.png)
+![](errors.png)
+
