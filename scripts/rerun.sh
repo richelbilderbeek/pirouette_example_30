@@ -18,4 +18,5 @@
 #
 rm -rf example_30
 Rscript example_30.R
+zip -r pirouette_example_30.zip example_30
 

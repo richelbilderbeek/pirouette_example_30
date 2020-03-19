@@ -28,7 +28,12 @@ pir_out <- pir_run(
   pir_params = pir_params
 )
 
-# Save results
+# Save summary locally
+pir_plots(pir_outs) +
+  ggtitle(paste0("pirouette example ", example_no)) +
+  ggsave("errors.png", width = 7, height = 7)
+
+# Save results in folder(s) (that have no version version)
 pir_save(
   phylogeny = phylogeny,
   pir_params = pir_params,
