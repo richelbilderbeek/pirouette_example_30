@@ -30,9 +30,7 @@ pir_out <- pir_run(
 )
 
 # Save summary locally
-pir_outs <- list()
-pir_outs[[1]] <- pir_out
-pir_plots(pir_outs) +
+pir_plot(pir_out) +
   ggtitle(paste0("pirouette example ", example_no)) +
   ggsave("errors.png", width = 7, height = 7)
 
