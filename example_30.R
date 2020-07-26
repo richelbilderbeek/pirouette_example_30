@@ -20,6 +20,17 @@ if (is_on_ci()) {
   pir_params <- shorten_pir_params(pir_params)
 }
 
+# Generative experiment
+pir_params$experiments[[1]]$inference_model$tree_prior <- create_yule_tree_prior()
+pir_params$experiments[[1]]$inference_model$site_model <- create_jc69_site_model()
+pir_params$experiments[[1]]$inference_model$clock_model <- create_strict_clock_model()
+
+# Simulate a twin tree using BD
+pir_params$twinning_params$sim_twin_tree_fun <- get_sim_bd_twin_tree_fun()
+
+check_pir_params(pir_params)
+
+
 # Do the runs
 pir_out <- pir_run(
   phylogeny,
