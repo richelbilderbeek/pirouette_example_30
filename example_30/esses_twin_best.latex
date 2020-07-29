@@ -1,5 +1,5 @@
 % latex table generated in R 3.6.3 by xtable 1.8-4 package
-% Wed Jul 29 11:34:32 2020
+% Wed Jul 29 13:27:50 2020
 \begin{table}[ht]
 \centering
 \begin{tabular}{ll}
@@ -8,12 +8,12 @@ parameter & ESS \\
   \hline
 posterior & 10001 \\ 
   likelihood & 10001 \\ 
-  prior & 10001 \\ 
+  prior & 9879 \\ 
   treeLikelihood & 10001 \\ 
   TreeHeight & 10001 \\ 
-  BirthDeath & 10001 \\ 
-  BDBirthRate & 9175 \\ 
-  BDDeathRate & 8610 \\ 
+  BirthDeath & 9879 \\ 
+  BDBirthRate & 9283 \\ 
+  BDDeathRate & 8506 \\ 
    \hline
 \end{tabular}
 \caption{ESSes for best candidate model, twin tree} 

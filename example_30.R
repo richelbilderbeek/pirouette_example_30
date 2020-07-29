@@ -71,6 +71,5 @@ pir_save(
 # Save plot
 library(ggplot2)
 pir_plot(pir_out) +
-  ggtitle(paste0("pirouette example ", example_no)) +
   ggsave("errors.png", width = 7, height = 7)
 
