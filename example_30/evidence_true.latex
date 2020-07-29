@@ -1,26 +1,26 @@
 % latex table generated in R 3.6.3 by xtable 1.8-4 package
-% Wed Jul 29 13:27:44 2020
+% Wed Jul 29 15:22:06 2020
 \begin{table}[ht]
 \centering
 \begin{tabular}{lllrrrr}
   \hline
 Site model & Clock model & Tree prior & log(evidence) & log(evidence error) & Weight & ESS \\ 
   \hline
-GTR & RLN & BD & -6122.441 & 5.575 & 0.000 & 10.338 \\ 
-  GTR & RLN & Yule & -6102.638 & 5.175 & 0.000 & 5.312 \\ 
-  GTR & Strict & BD & -6109.967 & 5.521 & 0.000 & 13.401 \\ 
-  GTR & Strict & Yule & -6106.931 & 5.428 & 0.000 & 9.222 \\ 
-  HKY & RLN & BD & -6099.614 & 4.897 & 0.000 & 5.972 \\ 
-  HKY & RLN & Yule & -6098.025 & 3.761 & 0.000 & 8.878 \\ 
-  HKY & Strict & BD & -6095.780 & 4.169 & 0.000 & 4.241 \\ 
-  HKY & Strict & Yule & -6089.742 & 3.645 & 0.205 & 6.517 \\ 
-  JC & RLN & BD & -6088.477 & 3.269 & 0.728 & 3.379 \\ 
-  JC & RLN & Yule & -6090.914 & 3.709 & 0.064 & 6.109 \\ 
-  JC & Strict & BD & -6095.830 & 4.270 & 0.000 & 8.650 \\ 
-  TN & RLN & BD & -6106.128 & 5.477 & 0.000 & 5.784 \\ 
-  TN & RLN & Yule & -6104.589 & 5.017 & 0.000 & 7.984 \\ 
-  TN & Strict & BD & -6094.535 & 4.364 & 0.002 & 6.881 \\ 
-  TN & Strict & Yule & -6111.101 & 6.100 & 0.000 & 6.683 \\ 
+GTR & RLN & BD & -6661.105 & 5.895 & 0.000 & 11.422 \\ 
+  GTR & RLN & Yule & -6650.211 & 4.669 & 0.000 & 8.311 \\ 
+  GTR & Strict & BD & -6656.726 & 5.304 & 0.000 & 11.711 \\ 
+  GTR & Strict & Yule & -6656.272 & 5.567 & 0.000 & 7.415 \\ 
+  HKY & RLN & BD & -6640.067 & 4.187 & 0.001 & 5.982 \\ 
+  HKY & RLN & Yule & -6642.854 & 4.641 & 0.000 & 5.865 \\ 
+  HKY & Strict & BD & -6661.308 & 5.857 & 0.000 & 9.510 \\ 
+  HKY & Strict & Yule & -6646.973 & 5.396 & 0.000 & 5.643 \\ 
+  JC & RLN & BD & -6633.353 & 2.969 & 0.945 & 5.770 \\ 
+  JC & RLN & Yule & -6636.447 & 3.363 & 0.043 & 6.941 \\ 
+  JC & Strict & BD & -6639.650 & 4.161 & 0.002 & 5.476 \\ 
+  TN & RLN & BD & -6640.669 & 3.778 & 0.001 & 6.728 \\ 
+  TN & RLN & Yule & -6644.276 & 4.797 & 0.000 & 7.155 \\ 
+  TN & Strict & BD & -6638.117 & 3.277 & 0.008 & 5.949 \\ 
+  TN & Strict & Yule & -6644.336 & 3.838 & 0.000 & 7.806 \\ 
    \hline
 \end{tabular}
 \caption{Evidences for the true phylogeny} 
