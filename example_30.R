@@ -14,7 +14,8 @@ rng_seed <- 314
 set.seed(rng_seed)
 
 # Nice, but does not match example 30
-phylogeny <- create_exemplary_dd_tree(n_taxa = n_taxa, crown_age = crown_age)
+# No RNG calls
+# phylogeny <- create_exemplary_dd_tree(n_taxa = n_taxa, crown_age = crown_age)
 
 # Create simulation function like example 28
 sim_dd_tree_fun <- function(crown_age) {
