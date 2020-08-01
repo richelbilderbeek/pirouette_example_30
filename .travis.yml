@@ -28,7 +28,11 @@ before_script:
   - Rscript -e "mauricer::install_beast2_pkg(\"NS\")"
 
 script:
+  - cat example_30/phylogeny.newick
+  - cat example_30/twin.newick
   - travis_wait 60 ./scripts/rerun.sh
+  - cat example_30/phylogeny.newick
+  - cat example_30/twin.newick
 
 after_success:
   - Rscript -e "mcbette::mcbette_report()"
