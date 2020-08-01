@@ -9,7 +9,7 @@ r_github_packages:
   - richelbilderbeek/tiebeaur
   - richelbilderbeek/mcbette
   - thijsjanzen/nodeSub
-  - richelbilderbeek/pirouette@richel
+  - richelbilderbeek/pirouette
 
 before_install:
   - echo $TRAVIS_R_VERSION_STRING
