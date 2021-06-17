@@ -47,6 +47,5 @@ pir_save(
 
 # Save plot
 library(ggplot2)
-pir_plot(pir_out) +
-  ggsave("errors.png", width = 7, height = 7)
+pir_plot(pir_out); ggsave("errors.png", width = 7, height = 7)
 
